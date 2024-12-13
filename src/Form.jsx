@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 import {
   Info,
   User,
@@ -12,6 +13,7 @@ import {
 } from "lucide-react";
 
 const ResearchParticipationPage = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -28,6 +30,7 @@ const ResearchParticipationPage = () => {
 
   const [formErrors, setFormErrors] = useState({});
   const [submitStatus, setSubmitStatus] = useState(null);
+  const [submitting, setSubmitting] = useState(false);
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -80,30 +83,37 @@ const ResearchParticipationPage = () => {
     return Object.keys(errors).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setSubmitting(true);
+    setFormErrors({});
+    setSubmitStatus(null);
 
-    if (validateForm()) {
-      // Here you would typically send the data to your backend
-      console.log("Form Submitted", formData);
+    try {
+      const response = await axios.post(
+        "http://localhost:5000/api/research/register",
+        formData
+      );
+
       setSubmitStatus("success");
-
-      // Optional: Reset form after successful submission
-      setFormData({
-        firstName: "",
-        lastName: "",
-        email: "",
-        age: "",
-        gender: "",
-        location: "",
-        shoppingFrequency: "",
-        preferredCategories: [],
-        averageMonthlySpending: "",
-        communicationPreference: "",
-        termsConsent: false,
-      });
-    } else {
-      setSubmitStatus("error");
+      // Optional: redirect after successful submission
+      setTimeout(() => {
+        navigate("/");
+      }, 3000);
+    } catch (error) {
+      setSubmitting(false);
+      if (error.response) {
+        // Server responded with an error
+        const serverErrors = error.response.data.errors || {};
+        setFormErrors(serverErrors);
+        setSubmitStatus("error");
+      } else if (error.request) {
+        // Request made but no response received
+        setSubmitStatus("network-error");
+      } else {
+        // Something happened in setting up the request
+        setSubmitStatus("error");
+      }
     }
   };
 
@@ -163,6 +173,15 @@ const ResearchParticipationPage = () => {
               role="alert"
             >
               Please correct the errors in the form before submitting.
+            </div>
+          )}
+
+          {submitStatus === "network-error" && (
+            <div
+              className="bg-yellow-100 border border-yellow-400 text-yellow-700 px-4 py-3 rounded relative"
+              role="alert"
+            >
+              Network error. Please check your internet connection.
             </div>
           )}
 
@@ -480,11 +499,20 @@ const ResearchParticipationPage = () => {
 
           {/* Submit Button */}
           <div className="text-center">
+            
             <button
               type="submit"
-              className="w-full bg-green-600 text-white py-3 rounded-md hover:bg-green-700 transition duration-300 flex items-center justify-center"
+              disabled={submitting}
+              className={`w-full py-3 rounded-md transition duration-300 flex items-center justify-center 
+            ${
+              submitting
+                ? "bg-gray-400 cursor-not-allowed"
+                : "bg-green-600 text-white hover:bg-green-700"
+            }`}
             >
-              <Gift className="mr-2" /> Submit Research Participation
+              {submitting
+                ? "Submitting..."
+                : <><Gift className="mr-2" />Submit Research Participation</>}
             </button>
           </div>
 

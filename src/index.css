@@ -15,6 +15,14 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  width: 100%;
+  max-width: 100%; /* Ensure the content does not exceed the viewport */
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 a {
@@ -30,7 +38,7 @@ body {
   margin: 0;
   display: flex;
   place-items: center;
-  min-width: 320px;
+  min-width: 100vw;
   min-height: 100vh;
 }
 

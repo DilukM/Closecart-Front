@@ -17,6 +17,10 @@ import {
   Instagram,
 } from "lucide-react";
 
+import Footer from "./footer";
+import Hero from "./hero";
+import Header from "./header";
+
 const LandingPage = () => {
   const [activeStep, setActiveStep] = useState(0);
 
@@ -56,33 +60,11 @@ const LandingPage = () => {
   ];
 
   return (
-    <div className="bg-white text-gray-900">
+    <div className="text-gray-900">
+      <Header />
       {/* Hero Section */}
-      <section className="bg-blue-50 py-20 px-4 text-center">
-        <div className="max-w-4xl mx-auto">
-          <h1 className="text-5xl font-bold mb-6 text-blue-900">
-            Discover Offers Around You!
-          </h1>
-          <p className="text-xl mb-10 text-gray-700">
-            A smarter way to shop, save, and support local businesses. Get
-            exclusive deals tailored to your location.
-          </p>
-          <div className="flex justify-center space-x-4">
-            <a
-              href="#features"
-              className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition"
-            >
-              Learn More
-            </a>
-            <Link
-              to="/research-participation"
-              className="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition"
-            >
-              Get Started
-            </Link>
-          </div>
-        </div>
-      </section>
+      <Hero />
+ 
 
       {/* About Section */}
       <section className="py-20 px-4">
@@ -199,41 +181,7 @@ const LandingPage = () => {
       </section>
 
       {/* Footer Section */}
-      <footer className="bg-gray-900 text-white py-12 px-4">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center">
-          <div className="mb-6 md:mb-0">
-            <h3 className="text-2xl font-bold mb-4">Close Cart</h3>
-            <nav className="space-x-4">
-              <a href="#" className="hover:text-blue-300">
-                About Us
-              </a>
-              <a href="#" className="hover:text-blue-300">
-                FAQ
-              </a>
-              <a href="#" className="hover:text-blue-300">
-                Contact
-              </a>
-              <a href="#" className="hover:text-blue-300">
-                Privacy Policy
-              </a>
-            </nav>
-          </div>
-          <div className="flex space-x-4">
-            <a href="#" className="hover:text-blue-300">
-              <Facebook />
-            </a>
-            <a href="#" className="hover:text-blue-300">
-              <Twitter />
-            </a>
-            <a href="#" className="hover:text-blue-300">
-              <Instagram />
-            </a>
-          </div>
-        </div>
-        <div className="text-center mt-8 border-t border-gray-700 pt-6">
-          © 2024 Close Cart. All rights reserved.
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };
