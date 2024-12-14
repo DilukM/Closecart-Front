@@ -42,7 +42,7 @@ const Hero = () => {
 
             <div className="order-1 lg:order-2">
               <img
-                className="w-full my-20 md:my-0"
+                className="w-full my-0 md:my-20"
                 src="https://timedoor.net/wp-content/uploads/2022/09/Mobile-Apps-Development-2.png"
                 alt=""
               />
