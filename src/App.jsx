@@ -1,6 +1,7 @@
 import "./App.css";
 import LandingPage from "./screens/landing";
-import ResearchParticipationPage from "./screens/Form-old";
+import ResearchParticipationPage from "./screens/Form";
+import ResearchParticipationPageOld from "./screens/Form-old";
 import {
   BrowserRouter as Router,
   Routes,
@@ -17,6 +18,10 @@ const App = () => {
           <Route
             path="/research-participation"
             element={<ResearchParticipationPage />}
+          />
+          <Route
+            path="/research-participation-old"
+            element={<ResearchParticipationPageOld />}
           />
           {/* Optional: Add a catch-all redirect */}
           <Route path="*" element={<Navigate to="/" replace />} />
