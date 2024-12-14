@@ -20,6 +20,7 @@ import {
 import Footer from "./footer";
 import Hero from "./hero";
 import Header from "./header";
+import GradientBackground from "./components/gradientBackground";
 
 const LandingPage = () => {
   const [activeStep, setActiveStep] = useState(0);
@@ -61,10 +62,11 @@ const LandingPage = () => {
 
   return (
     <div className="text-gray-900">
+       <GradientBackground />
       <Header />
       {/* Hero Section */}
       <Hero />
-
+     
       {/* About Section */}
       <section className="py-20 px-4">
         <div className="max-w-4xl mx-auto text-center">
