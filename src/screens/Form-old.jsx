@@ -38,6 +38,31 @@ const ResearchParticipationPage = () => {
     if (type === "checkbox") {
       setFormData((prev) => ({
         ...prev,
+        preferredCategories: checked
+          ? [...prev.preferredCategories, value]
+          : prev.preferredCategories.filter((cat) => cat !== value),
+      }));
+    } else if (name === "preferredCategories") {
+      setFormData((prev) => ({
+        ...prev,
+        preferredCategories: checked
+          ? [...prev.preferredCategories, value]
+          : prev.preferredCategories.filter((cat) => cat !== value),
+      }));
+    } else {
+      setFormData((prev) => ({
+        ...prev,
+        [name]: value,
+      }));
+    }
+  };
+
+  const handleConsentChange = (e) => {
+    const { name, value, type, checked } = e.target;
+
+    if (type === "checkbox") {
+      setFormData((prev) => ({
+        ...prev,
         [name]: checked,
       }));
     } else if (name === "preferredCategories") {
@@ -85,6 +110,12 @@ const ResearchParticipationPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    // Call validateForm and only proceed if validation passes
+    if (!validateForm()) {
+      // If validation fails, stop submission
+      setSubmitting(false);
+      return;
+    }
     setSubmitting(true);
     setFormErrors({});
     setSubmitStatus(null);
@@ -128,7 +159,7 @@ const ResearchParticipationPage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-white py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-3xl mx-auto mb-4">
         <Link
           to="/"
@@ -463,7 +494,7 @@ const ResearchParticipationPage = () => {
                 type="checkbox"
                 name="termsConsent"
                 checked={formData.termsConsent}
-                onChange={handleChange}
+                onChange={handleConsentChange}
                 className="form-checkbox h-5 w-5 text-blue-600 mr-3"
               />
               <p className="text-sm text-yellow-700">
@@ -499,7 +530,6 @@ const ResearchParticipationPage = () => {
 
           {/* Submit Button */}
           <div className="text-center">
-            
             <button
               type="submit"
               disabled={submitting}
@@ -510,9 +540,14 @@ const ResearchParticipationPage = () => {
                 : "bg-green-600 text-white hover:bg-green-700"
             }`}
             >
-              {submitting
-                ? "Submitting..."
-                : <><Gift className="mr-2" />Submit Research Participation</>}
+              {submitting ? (
+                "Submitting..."
+              ) : (
+                <>
+                  <Gift className="mr-2" />
+                  Submit Research Participation
+                </>
+              )}
             </button>
           </div>
 

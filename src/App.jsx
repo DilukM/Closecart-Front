@@ -1,13 +1,12 @@
 import "./App.css";
-import LandingPage from "./landing";
-import ResearchParticipationPage from "./Form";
+import LandingPage from "./screens/landing";
+import ResearchParticipationPage from "./screens/Form-old";
 import {
   BrowserRouter as Router,
   Routes,
   Route,
   Navigate,
 } from "react-router-dom";
-
 
 const App = () => {
   return (

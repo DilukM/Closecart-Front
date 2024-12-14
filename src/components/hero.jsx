@@ -6,7 +6,7 @@ import {
   Link,
   Navigate,
 } from "react-router-dom";
-import HeroImage from "./assets/36073069_8376504.webp";
+import HeroImage from "../assets/36073069_8376504.webp";
 
 const Hero = () => {
   return (
