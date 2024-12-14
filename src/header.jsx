@@ -28,7 +28,7 @@ const Header = () => {
           <div className="flex lg:hidden">
             <button
               type="button"
-              className="text-gray-900 bg-gray-100 focus:outline-none transition-transform duration-300"
+              className="text-gray-900 bg-gray-100 p-2 rounded focus:ring-gray-200 focus:outline-gray-200 transition-transform duration-300"
               onClick={toggleMenu}
             >
               <div
