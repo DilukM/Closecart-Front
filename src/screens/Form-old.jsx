@@ -187,7 +187,7 @@ const ResearchParticipationPage = () => {
         </div>
 
         {/* Form Section */}
-        <form onSubmit={handleSubmit} className="p-8 space-y-6">
+        <form onSubmit={handleSubmit} className="p-8 space-y-6 bg-white">
           {submitStatus === "success" && (
             <div
               className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative"
