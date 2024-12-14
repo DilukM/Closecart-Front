@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 
-const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-// Function to toggle menu
-const toggleMenu = () => {
-  setIsMenuOpen(!isMenuOpen);
-};
-
 const Header = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  // Function to toggle menu
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
   return (
     <header className="py-4 md:py-6 sticky top-0 bg-white/60 backdrop-blur-md shadow-md z-10 p-4">
       <div className="container px-4 mx-auto sm:px-6 lg:px-8">
@@ -27,7 +26,11 @@ const Header = () => {
           </div>
 
           <div className="flex lg:hidden">
-            <button type="button" className="text-gray-900 bg-gray-100" onClick={toggleMenu}>
+            <button
+              type="button"
+              className="text-gray-900 bg-gray-100"
+              onClick={toggleMenu}
+            >
               <svg
                 className="w-7 h-7"
                 xmlns="http://www.w3.org/2000/svg"
@@ -103,8 +106,8 @@ const Header = () => {
             </a>
           </div>
         </div>
-          {/* Mobile Dropdown Menu */}
-          {isMenuOpen && (
+        {/* Mobile Dropdown Menu */}
+        {isMenuOpen && (
           <div className="lg:hidden mt-4 bg-white shadow-md rounded-lg">
             <a
               href="#"
