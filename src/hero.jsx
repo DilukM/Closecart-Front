@@ -10,8 +10,6 @@ import {
 const Hero = () => {
   return (
     <div className="bg-gray-50">
-      
-
       <section className="pt-12 pb-12 sm:pb-16 lg:pt-8">
         <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
           <div className="grid max-w-lg grid-cols-1 mx-auto lg:max-w-full lg:items-center lg:grid-cols-2 gap-y-12 lg:gap-x-16">
@@ -26,7 +24,7 @@ const Hero = () => {
                 </p>
               </div>
 
-              <div className="flex space-x-4 py-12">
+              <div className="flex space-x-4 py-12 justify-center md:justify-start">
                 <a
                   href="#features"
                   className="bg-black text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition"
