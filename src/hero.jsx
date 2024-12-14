@@ -42,7 +42,7 @@ const Hero = () => {
             </div>
 
             <div className="order-1 lg:order-2">
-              <img className="w-full my-0" src={HeroImage} alt="" />
+              <img className="w-full my-0 md:my-12" src={HeroImage} alt="" />
             </div>
           </div>
         </div>
