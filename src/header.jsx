@@ -19,11 +19,11 @@ const Header = () => {
           </div>
 
           <div className="flex lg:hidden">
-            <button type="button" className="text-gray-900">
+            <button type="button" className="text-gray-900 bg-white">
               <svg
                 className="w-7 h-7"
                 xmlns="http://www.w3.org/2000/svg"
-                fill="white"
+                fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
               >
