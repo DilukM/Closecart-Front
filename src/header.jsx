@@ -134,10 +134,8 @@ const Header = () => {
 
         {/* Mobile Dropdown Menu */}
         <div
-          className={` ${
-            isMenuOpen
-              ? "lg:hidden mt-4 transform transition-transform duration-500 ease-in-out translate-y-0 opacity-100 scale-100"
-              : "lg:hidden mt-4 transform transition-transform duration-500 ease-in-out -translate-y-4 opacity-0 scale-95 pointer-events-none"
+          className={`lg:hidden mt-4 transform transition-transform duration-500 ease-in-out ${
+            isMenuOpen ? "translate-y-0 opacity-100 scale-100" : "hidden"
           }`}
         >
           <nav className="space-y-4">
