@@ -1,4 +1,12 @@
 import React, { useState } from "react";
+
+const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+// Function to toggle menu
+const toggleMenu = () => {
+  setIsMenuOpen(!isMenuOpen);
+};
+
 const Header = () => {
   return (
     <header className="py-4 md:py-6 sticky top-0 bg-white/60 backdrop-blur-md shadow-md z-10 p-4">
@@ -19,13 +27,13 @@ const Header = () => {
           </div>
 
           <div className="flex lg:hidden">
-            <button type="button" className="text-gray-900 bg-gray-100">
+            <button type="button" className="text-gray-900 bg-gray-100" onClick={toggleMenu}>
               <svg
                 className="w-7 h-7"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
-                stroke="grey"
+                stroke="currentColor"
               >
                 <path
                   stroke-linecap="round"
@@ -95,6 +103,49 @@ const Header = () => {
             </a>
           </div>
         </div>
+          {/* Mobile Dropdown Menu */}
+          {isMenuOpen && (
+          <div className="lg:hidden mt-4 bg-white shadow-md rounded-lg">
+            <a
+              href="#"
+              className="block px-4 py-2 text-gray-900 hover:bg-gray-100 rounded-t-lg"
+            >
+              Solutions
+            </a>
+            <a
+              href="#"
+              className="block px-4 py-2 text-gray-900 hover:bg-gray-100"
+            >
+              Industries
+            </a>
+            <a
+              href="#"
+              className="block px-4 py-2 text-gray-900 hover:bg-gray-100"
+            >
+              Fees
+            </a>
+            <a
+              href="#"
+              className="block px-4 py-2 text-gray-900 hover:bg-gray-100 rounded-b-lg"
+            >
+              About Rareblocks
+            </a>
+            <div className="border-t">
+              <a
+                href="#"
+                className="block px-4 py-2 text-gray-900 hover:bg-gray-100"
+              >
+                Sign in
+              </a>
+              <a
+                href="#"
+                className="block px-4 py-2 text-white text-center bg-gray-900 rounded-lg hover:bg-gray-700"
+              >
+                Create free account
+              </a>
+            </div>
+          </div>
+        )}
       </div>
     </header>
   );
