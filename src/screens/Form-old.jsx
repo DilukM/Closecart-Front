@@ -159,7 +159,7 @@ const ResearchParticipationPage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gray-50 dark:text-white py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-3xl mx-auto mb-4">
         <Link
           to="/"
@@ -169,8 +169,8 @@ const ResearchParticipationPage = () => {
         </Link>
       </div>
 
-      <div className="max-w-3xl mx-auto bg-white shadow-xl rounded-xl overflow-hidden"></div>
-      <div className="max-w-3xl mx-auto bg-white shadow-xl rounded-xl overflow-hidden">
+      <div className="max-w-3xl mx-auto bg-white dark:bg-slate-800 shadow-xl rounded-xl overflow-hidden"></div>
+      <div className="max-w-3xl mx-auto bg- dark:bg-slate-800 dark:text-white shadow-xl rounded-xl overflow-hidden">
         {/* Research Introduction Section */}
         <div className="bg-blue-600 text-white p-8 text-center">
           <h1 className="text-4xl font-bold mb-4 flex items-center justify-center">
@@ -187,7 +187,7 @@ const ResearchParticipationPage = () => {
         </div>
 
         {/* Form Section */}
-        <form onSubmit={handleSubmit} className="p-8 space-y-6 bg-white">
+        <form onSubmit={handleSubmit} className="p-8 space-y-6">
           {submitStatus === "success" && (
             <div
               className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative"
@@ -221,7 +221,7 @@ const ResearchParticipationPage = () => {
             <div>
               <label
                 htmlFor="firstName"
-                className="block text-sm font-medium text-gray-700 mb-2 flex items-center"
+                className="block text-sm font-medium text-gray-700 dark:text-gray-400 dark:text-gray-200 mb-2 flex items-center"
               >
                 <User className="mr-2 text-blue-600" /> First Name
               </label>
@@ -243,7 +243,7 @@ const ResearchParticipationPage = () => {
             <div>
               <label
                 htmlFor="lastName"
-                className="block text-sm font-medium text-gray-700 mb-2 flex items-center"
+                className="block text-sm font-medium text-gray-700 dark:text-gray-400 dark:text-gray-200 mb-2 flex items-center"
               >
                 <User className="mr-2 text-blue-600" /> Last Name
               </label>
@@ -268,7 +268,7 @@ const ResearchParticipationPage = () => {
           <div>
             <label
               htmlFor="email"
-              className="block text-sm font-medium text-gray-700 mb-2 flex items-center"
+              className="block text-sm font-medium text-gray-700 dark:text-gray-400 dark:text-gray-200 mb-2 flex items-center"
             >
               <Mail className="mr-2 text-blue-600" /> Email Address
             </label>
@@ -291,7 +291,7 @@ const ResearchParticipationPage = () => {
             <div>
               <label
                 htmlFor="age"
-                className="block text-sm font-medium text-gray-700 mb-2"
+                className="block text-sm font-medium text-gray-700 dark:text-gray-400 dark:text-gray-200 mb-2"
               >
                 Age
               </label>
@@ -317,7 +317,7 @@ const ResearchParticipationPage = () => {
             <div>
               <label
                 htmlFor="gender"
-                className="block text-sm font-medium text-gray-700 mb-2"
+                className="block text-sm font-medium text-gray-700 dark:text-gray-400 dark:text-gray-200 mb-2"
               >
                 Gender
               </label>
@@ -342,7 +342,7 @@ const ResearchParticipationPage = () => {
             <div>
               <label
                 htmlFor="location"
-                className="block text-sm font-medium text-gray-700 mb-2 flex items-center"
+                className="block text-sm font-medium text-gray-700 dark:text-gray-400 dark:text-gray-200 mb-2 flex items-center"
               >
                 <MapPin className="mr-2 text-blue-600" /> Location
               </label>
@@ -368,7 +368,7 @@ const ResearchParticipationPage = () => {
           <div>
             <label
               htmlFor="shoppingFrequency"
-              className="block text-sm font-medium text-gray-700 mb-2 flex items-center"
+              className="block text-sm font-medium text-gray-700 dark:text-gray-400 dark:text-gray-200 mb-2 flex items-center"
             >
               <ShoppingBag className="mr-2 text-blue-600" /> Shopping Frequency
             </label>
@@ -397,7 +397,7 @@ const ResearchParticipationPage = () => {
 
           {/* Preferred Shopping Categories */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2 flex items-center">
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-400 dark:text-gray-200 mb-2 flex items-center">
               <ShoppingBag className="mr-2 text-blue-600" /> Preferred Shopping
               Categories
             </label>
@@ -427,7 +427,7 @@ const ResearchParticipationPage = () => {
           <div>
             <label
               htmlFor="averageMonthlySpending"
-              className="block text-sm font-medium text-gray-700 mb-2 flex items-center"
+              className="block text-sm font-medium text-gray-700 dark:text-gray-400 dark:text-gray-200 mb-2 flex items-center"
             >
               <CreditCard className="mr-2 text-blue-600" /> Average Monthly
               Spending
@@ -460,7 +460,7 @@ const ResearchParticipationPage = () => {
           <div>
             <label
               htmlFor="communicationPreference"
-              className="block text-sm font-medium text-gray-700 mb-2"
+              className="block text-sm font-medium text-gray-700 dark:text-gray-400 dark:text-gray-200 mb-2"
             >
               Communication Preference
             </label>
