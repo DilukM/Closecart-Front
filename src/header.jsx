@@ -28,42 +28,48 @@ const Header = () => {
           <div className="flex lg:hidden">
             <button
               type="button"
-              className="text-gray-900 bg-gray-100"
+              className="text-gray-900 bg-gray-100 p-2 rounded focus:ring-2 focus:ring-gray-500 transition-transform duration-300"
               onClick={toggleMenu}
             >
-              {isMenuOpen ? (
-                // Close Icon
-                <svg
-                  className="w-7 h-7"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="1.5"
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                </svg>
-              ) : (
-                // Hamburger Icon
-                <svg
-                  className="w-7 h-7"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="1.5"
-                    d="M4 6h16M4 12h16M4 18h16"
-                  />
-                </svg>
-              )}
+              <div
+                className={`w-7 h-7 relative transition-transform duration-300 ${
+                  isMenuOpen ? "rotate-90 scale-110" : ""
+                }`}
+              >
+                {isMenuOpen ? (
+                  // Close Icon
+                  <svg
+                    className="w-full h-full"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="1.5"
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
+                ) : (
+                  // Hamburger Icon
+                  <svg
+                    className="w-full h-full"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="1.5"
+                      d="M4 6h16M4 12h16M4 18h16"
+                    />
+                  </svg>
+                )}
+              </div>
             </button>
           </div>
 
@@ -125,49 +131,54 @@ const Header = () => {
             </a>
           </div>
         </div>
+
         {/* Mobile Dropdown Menu */}
-        {isMenuOpen && (
-          <div className="lg:hidden mt-4">
+        <div
+          className={`lg:hidden mt-4 transform transition-transform duration-500 ease-in-out ${
+            isMenuOpen
+              ? "translate-y-0 opacity-100 scale-100"
+              : "-translate-y-4 opacity-0 scale-95 pointer-events-none"
+          }`}
+        >
+          <nav className="space-y-4">
             <a
               href="#"
-              className="block px-4 py-2 text-gray-900 hover:bg-gray-100"
+              className="block text-base font-medium text-gray-900 hover:text-opacity-50 transition-all duration-200"
             >
               Solutions
             </a>
             <a
               href="#"
-              className="block px-4 py-2 text-gray-900 hover:bg-gray-100"
+              className="block text-base font-medium text-gray-900 hover:text-opacity-50 transition-all duration-200"
             >
               Industries
             </a>
             <a
               href="#"
-              className="block px-4 py-2 text-gray-900 hover:bg-gray-100"
+              className="block text-base font-medium text-gray-900 hover:text-opacity-50 transition-all duration-200"
             >
               Fees
             </a>
             <a
               href="#"
-              className="block px-4 py-2 text-gray-900 hover:bg-gray-100"
+              className="block text-base font-medium text-gray-900 hover:text-opacity-50 transition-all duration-200"
             >
               About Rareblocks
             </a>
-            <div className="border-t">
-              <a
-                href="#"
-                className="block px-4 py-2 text-gray-900 hover:bg-gray-100"
-              >
-                Sign in
-              </a>
-              <a
-                href="#"
-                className="block px-4 py-2 text-white text-center bg-gray-900 rounded-lg hover:bg-gray-700"
-              >
-                Create free account
-              </a>
-            </div>
-          </div>
-        )}
+            <a
+              href="#"
+              className="block text-base font-medium text-gray-900 hover:text-opacity-50 transition-all duration-200"
+            >
+              Sign in
+            </a>
+            <a
+              href="#"
+              className="block w-full text-center px-5 py-2 text-base font-bold text-white bg-gray-900 rounded-xl hover:bg-gray-600 transition-all duration-200"
+            >
+              Create free account
+            </a>
+          </nav>
+        </div>
       </div>
     </header>
   );
