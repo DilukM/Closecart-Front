@@ -6,6 +6,7 @@ import {
   Link,
   Navigate,
 } from "react-router-dom";
+import HeroImage from "./assets/36073069_8376504.webp";
 
 const Hero = () => {
   return (
@@ -41,11 +42,7 @@ const Hero = () => {
             </div>
 
             <div className="order-1 lg:order-2">
-              <img
-                className="w-full my-0 md:my-20"
-                src="https://timedoor.net/wp-content/uploads/2022/09/Mobile-Apps-Development-2.png"
-                alt=""
-              />
+              <img className="w-full my-0" src={HeroImage} alt="" />
             </div>
           </div>
         </div>
