@@ -45,12 +45,7 @@ const Header = () => {
                     viewBox="0 0 24 24"
                     stroke="currentColor"
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="1.5"
-                      d="M6 18L18 6M6 6l12 12"
-                    />
+                    
                   </svg>
                 ) : (
                   // Hamburger Icon
@@ -61,12 +56,7 @@ const Header = () => {
                     viewBox="0 0 24 24"
                     stroke="currentColor"
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="1.5"
-                      d="M4 6h16M4 12h16M4 18h16"
-                    />
+                  
                   </svg>
                 )}
               </div>
@@ -135,7 +125,7 @@ const Header = () => {
         {/* Mobile Dropdown Menu */}
         <div
           className={`lg:hidden mt-4 transform transition-transform duration-500 ease-in-out ${
-            isMenuOpen ? "translate-y-0 opacity-100 scale-100" : "hidden"
+            isMenuOpen ? "translate-y-0 opacity-100 scale-100 block" : "hidden"
           }`}
         >
           <nav className="space-y-4">
