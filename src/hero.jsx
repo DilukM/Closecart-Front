@@ -13,7 +13,7 @@ const Hero = () => {
       <section className="pt-12 pb-12 sm:pb-16 lg:pt-8">
         <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
           <div className="grid max-w-lg grid-cols-1 mx-auto lg:max-w-full lg:items-center lg:grid-cols-2 gap-y-12 lg:gap-x-16">
-            <div>
+            <div className="order-2 lg:order-1">
               <div className="text-center lg:text-left">
                 <h1 className="text-4xl font-bold leading-tight text-gray-900 sm:text-5xl sm:leading-tight lg:leading-tight lg:text-6xl font-pj">
                   Discover Offers Around You!
@@ -40,9 +40,9 @@ const Hero = () => {
               </div>
             </div>
 
-            <div>
+            <div className="order-1 lg:order-2">
               <img
-                className="w-full my-20"
+                className="w-full my-20 md:my-0"
                 src="https://timedoor.net/wp-content/uploads/2022/09/Mobile-Apps-Development-2.png"
                 alt=""
               />
