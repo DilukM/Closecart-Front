@@ -60,11 +60,10 @@ const LandingPage = () => {
   ];
 
   return (
-    <div className="text-gray-900">
+    <div className="text-gray-900 bg-white">
       <Header />
       {/* Hero Section */}
       <Hero />
- 
 
       {/* About Section */}
       <section className="py-20 px-4">
