@@ -31,20 +31,39 @@ const Header = () => {
               className="text-gray-900 bg-gray-100"
               onClick={toggleMenu}
             >
-              <svg
-                className="w-7 h-7"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="1.5"
-                  d="M4 6h16M4 12h16M4 18h16"
-                ></path>
-              </svg>
+              {isMenuOpen ? (
+                // Close Icon
+                <svg
+                  className="w-7 h-7"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="1.5"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              ) : (
+                // Hamburger Icon
+                <svg
+                  className="w-7 h-7"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="1.5"
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                </svg>
+              )}
             </button>
           </div>
 
@@ -108,10 +127,10 @@ const Header = () => {
         </div>
         {/* Mobile Dropdown Menu */}
         {isMenuOpen && (
-          <div className="lg:hidden mt-4 bg-white shadow-md rounded-lg">
+          <div className="lg:hidden mt-4">
             <a
               href="#"
-              className="block px-4 py-2 text-gray-900 hover:bg-gray-100 rounded-t-lg"
+              className="block px-4 py-2 text-gray-900 hover:bg-gray-100"
             >
               Solutions
             </a>
@@ -129,7 +148,7 @@ const Header = () => {
             </a>
             <a
               href="#"
-              className="block px-4 py-2 text-gray-900 hover:bg-gray-100 rounded-b-lg"
+              className="block px-4 py-2 text-gray-900 hover:bg-gray-100"
             >
               About Rareblocks
             </a>
