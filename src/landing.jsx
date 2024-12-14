@@ -60,7 +60,7 @@ const LandingPage = () => {
   ];
 
   return (
-    <div className="text-gray-900 bg-white">
+    <div className="text-gray-900">
       <Header />
       {/* Hero Section */}
       <Hero />
