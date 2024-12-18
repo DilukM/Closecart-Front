@@ -128,7 +128,7 @@ const ResearchParticipationPage = () => {
       };
 
       const response = await axios.post(
-        "close-cart-back.vercel.app/api/research/register",
+        "https://close-cart-back.vercel.app/api/research/register",
         cleanedFormData
       );
 
