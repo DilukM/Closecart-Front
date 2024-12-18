@@ -512,7 +512,7 @@ const ResearchParticipationPage = () => {
                   <option value="25001-50000">Rs 25,001 - Rs 50,000</option>
                   <option value="50001-100000">Rs 50,001 - Rs 100,000</option>
                   <option value="100001-200000">Rs 100,001 - Rs 200,000</option>
-                  <option value="200000+">Rs 50000+</option>
+                  <option value="200000+">Rs 200,000+</option>
                 </select>
                 {formErrors.averageMonthlySpending && (
                   <p className="text-red-500 text-xs mt-1">
