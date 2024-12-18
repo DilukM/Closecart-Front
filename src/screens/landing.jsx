@@ -21,6 +21,7 @@ import Footer from "../components/footer";
 import Hero from "../components/hero";
 import Header from "../components/header";
 import GradientBackground from "../components/gradientBackground";
+import AndroidImage from "../assets/How-to-Publish-an-Android-App-on-Google-Play-Store.png.jpg"
 
 const LandingPage = () => {
   const [activeStep, setActiveStep] = useState(0);
@@ -135,7 +136,7 @@ const LandingPage = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section className="bg-blue-100 py-20 px-4">
+      {/* <section className="bg-blue-100 py-20 px-4">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-4xl font-bold text-center mb-12">
             What Our Users Say
@@ -154,32 +155,66 @@ const LandingPage = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Call-to-Action Section */}
-      <section id="download" className="bg-green-50 py-20 px-4 text-center">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl font-bold mb-6">Start Saving Today!</h2>
-          <p className="text-xl mb-10 text-gray-700">
-            Join thousands of users who are already discovering amazing deals
-            near them.
-          </p>
-          <div className="flex justify-center space-x-4">
-            <a
-              href="#"
-              className="bg-black text-white px-6 py-3 rounded-lg hover:bg-gray-800 transition flex items-center"
-            >
-              <Download className="mr-2" /> Download on the App Store
-            </a>
-            <a
-              href="#"
-              className="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition flex items-center"
-            >
-              <Download className="mr-2" /> Get it on Google Play
-            </a>
-          </div>
+      <section id="download" className="bg-green-50 py-20 px-4">
+  <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-center lg:items-start space-y-10 lg:space-y-0 lg:space-x-10">
+    {/* Left Image */}
+    <div className="w-full lg:w-1/2">
+      <img
+        src={AndroidImage}
+        alt="App Preview"
+        className="rounded-lg shadow-lg"
+      />
+    </div>
+    
+    {/* Right Content */}
+    <div className="w-full lg:w-1/2 text-center lg:text-left">
+      <h2 className="text-4xl font-bold mb-6">Will Be Available Soon On</h2>
+      <p className="text-xl mb-10 text-gray-700">
+        We're working hard to bring our app to your favorite platforms. Stay tuned!
+      </p>
+      <div className="flex flex-col items-center lg:items-start space-y-4">
+        {/* App Store Coming Soon */}
+        <div className="flex items-center space-x-4">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/App_Store_%28iOS%29.svg/512px-App_Store_%28iOS%29.svg.png?20201023145313"
+            alt="Apple Logo"
+            className="w-10 h-10"
+          />
+          <p className="text-lg text-gray-800 font-semibold">App Store - Coming Soon</p>
         </div>
-      </section>
+        {/* Google Play Coming Soon */}
+        <div className="flex items-center space-x-4">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/d/d0/Google_Play_Arrow_logo.svg"
+            alt="Google Play Logo"
+            className="w-10 h-10"
+          />
+          <p className="text-lg text-gray-800 font-semibold">Google Play - Coming Soon</p>
+        </div>
+        {/* Action Buttons */}
+        <div className="mt-6">
+          <a
+            href="#"
+            className="bg-black text-white px-6 py-3 rounded-lg hover:bg-gray-800 transition inline-block"
+          >
+            Notify Me
+          </a>
+          <a
+            href="#"
+            className="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition inline-block ml-4"
+          >
+            Learn More
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
 
       {/* Footer Section */}
       <Footer />

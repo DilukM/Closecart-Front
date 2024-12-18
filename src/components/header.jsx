@@ -33,7 +33,7 @@ const Header = () => {
             </a>
           </div>
 
-          <div className="flex lg:hidden">
+          {/* <div className="flex lg:hidden">
             <button
               type="button"
               className="text-gray-900 bg-gray-100 p-2 rounded focus:ring-gray-200 focus:outline-gray-200 transition-transform duration-300"
@@ -117,17 +117,17 @@ const Header = () => {
               {" "}
               About Rareblocks{" "}
             </a>
-          </div>
+          </div> */}
 
-          <div className="hidden lg:ml-auto lg:flex lg:items-center lg:space-x-8 xl:space-x-10">
-            <a
+          <div className=" lg:ml-auto lg:flex lg:items-center lg:space-x-8 xl:space-x-10">
+            {/* <a
               href="#"
               title=""
               className="text-base font-medium text-gray-900 transition-all duration-200 rounded focus:outline-none font-pj hover:text-opacity-50 focus:ring-1 focus:ring-gray-900 focus:ring-offset-2"
             >
               {" "}
               Sign in{" "}
-            </a>
+            </a> */}
 
             {/* <a
               href="#"
