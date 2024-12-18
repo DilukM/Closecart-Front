@@ -507,7 +507,7 @@ const ResearchParticipationPage = () => {
                   }`}
                 >
                   <option value="">Select Your Typical Spending</option>
-                  <option value="10000-">Rs 10000-</option>
+                  <option value="10000-">Rs 10,000-</option>
                   <option value="10001-25000">Rs 10,001 - Rs 25,000</option>
                   <option value="25001-50000">Rs 25,001 - Rs 50,000</option>
                   <option value="50001-100000">Rs 50,001 - Rs 100,000</option>
