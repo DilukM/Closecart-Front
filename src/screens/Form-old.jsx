@@ -1,21 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
-import {
-  Info,
-  User,
-  Mail,
-  Phone,
-  MapPin,
-  ShoppingBag,
-  CreditCard,
-  Gift,
-  ArrowLeft,
-  Target,
-  PieChart,
-  Zap,
-} from "lucide-react";
+import { Info, Gift, Target, PieChart, Zap } from "lucide-react";
 
 const ResearchParticipationPage = () => {
   const navigate = useNavigate();
@@ -39,30 +26,35 @@ const ResearchParticipationPage = () => {
   const [submitting, setSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState();
 
+  // Load cached data when the component mounts
+  useEffect(() => {
+    const cachedFormData = localStorage.getItem("formData");
+    if (cachedFormData) {
+      setFormData(JSON.parse(cachedFormData));
+    }
+  }, []);
+
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
-
-    if (type === "checkbox") {
-      setFormData((prev) => ({
-        ...prev,
-        preferredCategories: checked
+  
+    setFormData((prev) => {
+      const updatedFormData = { ...prev };
+  
+      if (type === "checkbox") {
+        updatedFormData.preferredCategories = checked
           ? [...prev.preferredCategories, value]
-          : prev.preferredCategories.filter((cat) => cat !== value),
-      }));
-    } else if (name === "preferredCategories") {
-      setFormData((prev) => ({
-        ...prev,
-        preferredCategories: checked
-          ? [...prev.preferredCategories, value]
-          : prev.preferredCategories.filter((cat) => cat !== value),
-      }));
-    } else {
-      setFormData((prev) => ({
-        ...prev,
-        [name]: value,
-      }));
-    }
+          : prev.preferredCategories.filter((cat) => cat !== value);
+      } else {
+        updatedFormData[name] = value;
+      }
+  
+      // Save updated form data to localStorage
+      localStorage.setItem("formData", JSON.stringify(updatedFormData));
+  
+      return updatedFormData;
+    });
   };
+  
 
   const handleConsentChange = (e) => {
     const { name, checked } = e.target;
@@ -131,6 +123,11 @@ const ResearchParticipationPage = () => {
         "https://close-cart-back.vercel.app/api/research/register",
         cleanedFormData
       );
+
+      // Clear localStorage on successful submission
+      localStorage.removeItem("formData");
+      
+
 
       setSubmitStatus("success");
       setTimeout(() => {
