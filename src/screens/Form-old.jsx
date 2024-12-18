@@ -507,11 +507,12 @@ const ResearchParticipationPage = () => {
                   }`}
                 >
                   <option value="">Select Your Typical Spending</option>
-                  <option value="0-100">$0 - $100</option>
-                  <option value="101-250">$101 - $250</option>
-                  <option value="251-500">$251 - $500</option>
-                  <option value="501-1000">$501 - $1000</option>
-                  <option value="1000+">$1000+</option>
+                  <option value="100-1000">Rs 100 - Rs 1000</option>
+                  <option value="1001-5000">Rs 1001 - Rs 5000</option>
+                  <option value="5001-10000">Rs 5001 - Rs 10000</option>
+                  <option value="10001-25000">Rs 10001 - Rs 25000</option>
+                  <option value="25001-50000">Rs 25001 - Rs 50000</option>
+                  <option value="50000+">Rs 50000+</option>
                 </select>
                 {formErrors.averageMonthlySpending && (
                   <p className="text-red-500 text-xs mt-1">
