@@ -36,10 +36,10 @@ const ResearchParticipationPage = () => {
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
-  
+
     setFormData((prev) => {
       const updatedFormData = { ...prev };
-  
+
       if (type === "checkbox") {
         updatedFormData.preferredCategories = checked
           ? [...prev.preferredCategories, value]
@@ -47,14 +47,13 @@ const ResearchParticipationPage = () => {
       } else {
         updatedFormData[name] = value;
       }
-  
+
       // Save updated form data to localStorage
       localStorage.setItem("formData", JSON.stringify(updatedFormData));
-  
+
       return updatedFormData;
     });
   };
-  
 
   const handleConsentChange = (e) => {
     const { name, checked } = e.target;
@@ -126,8 +125,6 @@ const ResearchParticipationPage = () => {
 
       // Clear localStorage on successful submission
       localStorage.removeItem("formData");
-      
-
 
       setSubmitStatus("success");
       setTimeout(() => {
@@ -385,7 +382,9 @@ const ResearchParticipationPage = () => {
                     formErrors.age ? "border-red-500" : "border-yellow-300"
                   }`}
                 >
-                  <option value="">Select Age Group</option>
+                  <option value="" disabled>
+                    Select Age Group
+                  </option>
                   <option value="18-24">18-24</option>
                   <option value="25-34">25-34</option>
                   <option value="35-44">35-44</option>
@@ -411,7 +410,9 @@ const ResearchParticipationPage = () => {
                     formErrors.gender ? "border-red-500" : "border-yellow-300"
                   }`}
                 >
-                  <option value="">Select Gender</option>
+                  <option value="" disabled>
+                    Select Gender
+                  </option>
                   <option value="male">Male</option>
                   <option value="female">Female</option>
                   <option value="other">Other</option>
@@ -472,7 +473,9 @@ const ResearchParticipationPage = () => {
                       : "border-yellow-300"
                   }`}
                 >
-                  <option value="">How often do you shop?</option>
+                  <option value="" disabled>
+                    How often do you shop?
+                  </option>
                   <option value="weekly">Weekly</option>
                   <option value="bi-weekly">Bi-Weekly</option>
                   <option value="monthly">Monthly</option>
@@ -503,7 +506,9 @@ const ResearchParticipationPage = () => {
                       : "border-yellow-300"
                   }`}
                 >
-                  <option value="">Select Your Typical Spending</option>
+                  <option value="" disabled>
+                    Select Your Typical Spending
+                  </option>
                   <option value="10000-">Below Rs 10,000</option>
                   <option value="10001-25000">Rs 10,001 - Rs 25,000</option>
                   <option value="25001-50000">Rs 25,001 - Rs 50,000</option>
@@ -620,7 +625,9 @@ const ResearchParticipationPage = () => {
                     : "border-yellow-300"
                 }`}
               >
-                <option value="">Select Communication Method</option>
+                <option value="" disabled>
+                  Select Communication Method
+                </option>
                 <option value="email">Email</option>
                 <option value="sms">SMS</option>
                 <option value="push-notification">Push Notification</option>
