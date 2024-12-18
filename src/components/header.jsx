@@ -1,4 +1,12 @@
 import React, { useState } from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link,
+  Navigate,
+} from "react-router-dom";
+import logo from "../assets/13961863_5399518.png";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -19,7 +27,7 @@ const Header = () => {
             >
               <img
                 className="w-auto h-8"
-                src="https://d33wubrfki0l68.cloudfront.net/682a555ec15382f2c6e7457ca1ef48d8dbb179ac/f8cd3/images/logo.svg"
+                src={logo}
                 alt=""
               />
             </a>
@@ -121,14 +129,18 @@ const Header = () => {
               Sign in{" "}
             </a>
 
-            <a
+            {/* <a
               href="#"
               title=""
               className="px-5 py-2 text-base font-bold leading-7 text-white transition-all duration-200 bg-gray-900 border border-transparent rounded-xl hover:bg-gray-600 font-pj focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
               role="button"
             >
               Create free account
-            </a>
+            </a> */}
+            <Link to={"/research-participation"} className="px-5 py-2 text-base font-bold leading-7 text-white transition-all duration-200 bg-gray-900 border border-transparent rounded-xl hover:bg-gray-600 font-pj focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900">
+            
+            Get Free Offers
+            </Link>
           </div>
         </div>
 
