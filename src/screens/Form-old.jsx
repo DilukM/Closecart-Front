@@ -66,22 +66,22 @@ const ResearchParticipationPage = () => {
   const validateForm = () => {
     const errors = {};
 
-    if (!formData.firstName.trim()) errors.firstName = "First name is required";
-    if (!formData.lastName.trim()) errors.lastName = "Last name is required";
+    // if (!formData.firstName.trim()) errors.firstName = "First name is required";
+    // if (!formData.lastName.trim()) errors.lastName = "Last name is required";
 
-    if (!formData.email.trim()) {
-      errors.email = "Email is required";
-    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      errors.email = "Email is invalid";
-    }
+    // if (!formData.email.trim()) {
+    //   errors.email = "Email is required";
+    // } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+    //   errors.email = "Email is invalid";
+    // }
 
-    if (!formData.mobileNumber.trim()) {
-      errors.mobileNumber = "Mobile number is required";
-    } else if (
-      !/^\+?1?\d{10}$/.test(formData.mobileNumber.replace(/\D/g, ""))
-    ) {
-      errors.mobileNumber = "Please enter a valid 10-digit mobile number";
-    }
+    // if (!formData.mobileNumber.trim()) {
+    //   errors.mobileNumber = "Mobile number is required";
+    // } else if (
+    //   !/^\+?1?\d{10}$/.test(formData.mobileNumber.replace(/\D/g, ""))
+    // ) {
+    //   errors.mobileNumber = "Please enter a valid 10-digit mobile number";
+    // }
 
     if (!formData.age) errors.age = "Age is required";
     if (!formData.gender) errors.gender = "Gender is required";
@@ -247,119 +247,107 @@ const ResearchParticipationPage = () => {
             </div>
           )}
 
-          {/* Personal Information Section */}
-          <div className="bg-yellow-50 p-6 rounded-lg border-l-4 border-yellow-500 shadow-lg">
-            <h2 className="text-2xl font-semibold mb-4 text-yellow-700">
-              Personal Information
-            </h2>
-            <div className="grid md:grid-cols-2 gap-6">
-              <div>
-                <label
-                  htmlFor="firstName"
-                  className="block text-sm font-medium text-yellow-800 mb-2"
-                >
-                  First Name
-                </label>
-                <input
-                  type="text"
-                  name="firstName"
-                  value={formData.firstName}
-                  onChange={handleChange}
-                  className={`w-full px-3 py-2 border rounded-md ${
-                    formErrors.firstName
-                      ? "border-red-500"
-                      : "border-yellow-300"
-                  }`}
-                />
-                {formErrors.firstName && (
-                  <p className="text-red-500 text-xs mt-1">
-                    {formErrors.firstName}
-                  </p>
-                )}
-              </div>
-              <div>
-                <label
-                  htmlFor="lastName"
-                  className="block text-sm font-medium text-yellow-800 mb-2"
-                >
-                  Last Name
-                </label>
-                <input
-                  type="text"
-                  name="lastName"
-                  value={formData.lastName}
-                  onChange={handleChange}
-                  className={`w-full px-3 py-2 border rounded-md ${
-                    formErrors.lastName ? "border-red-500" : "border-yellow-300"
-                  }`}
-                />
-                {formErrors.lastName && (
-                  <p className="text-red-500 text-xs mt-1">
-                    {formErrors.lastName}
-                  </p>
-                )}
-              </div>
-            </div>
-          </div>
+         {/* Contact Details Section */}
+<div className="bg-yellow-50 p-6 rounded-lg border-l-4 border-yellow-500 shadow-lg">
+  <h2 className="text-2xl font-semibold mb-4 text-yellow-700">
+    Contact Details
+  </h2>
+  <p className="text-sm text-yellow-600 mb-4">
+    This information is optional and will only be used to send updates about the "closecart" platform.
+  </p>
+  <div className="grid md:grid-cols-2 gap-6">
+    {/* First Name */}
+    <div>
+      <label
+        htmlFor="firstName"
+        className="block text-sm font-medium text-yellow-800 mb-2"
+      >
+        First Name
+      </label>
+      <input
+        type="text"
+        name="firstName"
+        value={formData.firstName}
+        onChange={handleChange}
+        className={`w-full px-3 py-2 border rounded-md ${
+          formErrors.firstName ? "border-red-500" : "border-yellow-300"
+        }`}
+      />
+      {formErrors.firstName && (
+        <p className="text-red-500 text-xs mt-1">{formErrors.firstName}</p>
+      )}
+    </div>
 
-          {/* Contact Information Section */}
-          <div className="bg-yellow-50 p-6 rounded-lg border-l-4 border-yellow-500 shadow-lg">
-            <h2 className="text-2xl font-semibold mb-4 text-yellow-700">
-              Contact Details
-            </h2>
-            <div className="space-y-6">
-              <div>
-                <label
-                  htmlFor="email"
-                  className="block text-sm font-medium text-yellow-800 mb-2"
-                >
-                  Email Address
-                </label>
-                <input
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  className={`w-full px-3 py-2 border rounded-md ${
-                    formErrors.email ? "border-red-500" : "border-yellow-300"
-                  }`}
-                />
-                {formErrors.email && (
-                  <p className="text-red-500 text-xs mt-1">
-                    {formErrors.email}
-                  </p>
-                )}
-              </div>
-              <div>
-                <label
-                  htmlFor="mobileNumber"
-                  className="block text-sm font-medium text-yellow-800 mb-2"
-                >
-                  Mobile Number
-                </label>
-                <input
-                  type="tel"
-                  name="mobileNumber"
-                  value={formData.mobileNumber}
-                  onChange={handleChange}
-                  placeholder="Enter 10-digit mobile number"
-                  className={`w-full px-3 py-2 border rounded-md ${
-                    formErrors.mobileNumber
-                      ? "border-red-500"
-                      : "border-yellow-300"
-                  }`}
-                />
-                {formErrors.mobileNumber && (
-                  <p className="text-red-500 text-xs mt-1">
-                    {formErrors.mobileNumber}
-                  </p>
-                )}
-                <p className="text-xs text-yellow-600 mt-1">
-                  Format: 0712345678
-                </p>
-              </div>
-            </div>
-          </div>
+    {/* Last Name */}
+    <div>
+      <label
+        htmlFor="lastName"
+        className="block text-sm font-medium text-yellow-800 mb-2"
+      >
+        Last Name
+      </label>
+      <input
+        type="text"
+        name="lastName"
+        value={formData.lastName}
+        onChange={handleChange}
+        className={`w-full px-3 py-2 border rounded-md ${
+          formErrors.lastName ? "border-red-500" : "border-yellow-300"
+        }`}
+      />
+      {formErrors.lastName && (
+        <p className="text-red-500 text-xs mt-1">{formErrors.lastName}</p>
+      )}
+    </div>
+
+    {/* Email Address */}
+    <div>
+      <label
+        htmlFor="email"
+        className="block text-sm font-medium text-yellow-800 mb-2"
+      >
+        Email Address
+      </label>
+      <input
+        type="email"
+        name="email"
+        value={formData.email}
+        onChange={handleChange}
+        className={`w-full px-3 py-2 border rounded-md ${
+          formErrors.email ? "border-red-500" : "border-yellow-300"
+        }`}
+      />
+      {formErrors.email && (
+        <p className="text-red-500 text-xs mt-1">{formErrors.email}</p>
+      )}
+    </div>
+
+    {/* Mobile Number */}
+    <div>
+      <label
+        htmlFor="mobileNumber"
+        className="block text-sm font-medium text-yellow-800 mb-2"
+      >
+        Mobile Number
+      </label>
+      <input
+        type="tel"
+        name="mobileNumber"
+        value={formData.mobileNumber}
+        onChange={handleChange}
+        placeholder="Enter 10-digit mobile number"
+        className={`w-full px-3 py-2 border rounded-md ${
+          formErrors.mobileNumber ? "border-red-500" : "border-yellow-300"
+        }`}
+      />
+      {formErrors.mobileNumber && (
+        <p className="text-red-500 text-xs mt-1">{formErrors.mobileNumber}</p>
+      )}
+      <p className="text-xs text-yellow-600 mt-1">Format: 0712345678</p>
+    </div>
+  </div>
+</div>
+
 
           {/* Demographic Information Section */}
           <div className="bg-yellow-50 p-6 rounded-lg border-l-4 border-yellow-500 shadow-lg">
