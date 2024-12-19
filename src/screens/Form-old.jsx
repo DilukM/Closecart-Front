@@ -3,6 +3,13 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { Info, Gift, Target, PieChart, Zap } from "lucide-react";
+import electronics from "../assets/responsive.png";
+import beauty from "../assets/cosmetics.png";
+import book from "../assets/book.png";
+import fashion from "../assets/dress.png";
+import fitness from "../assets/sport.png";
+import food from "../assets/restaurant.png";
+import home from "../assets/home.png";
 
 const ResearchParticipationPage = () => {
   const navigate = useNavigate();
@@ -155,14 +162,36 @@ const ResearchParticipationPage = () => {
   };
 
   const shoppingCategories = [
-    "Electronics",
-    "Fashion",
-    "Food & Dining",
-    "Home & Garden",
-    "Sports & Fitness",
-    "Beauty & Personal Care",
-    "Books & Entertainment",
+    {
+      name: "Electronics",
+      image: electronics, 
+    },
+    {
+      name: "Fashion",
+      image: fashion,
+    },
+    {
+      name: "Food & Dining",
+      image: food,
+    },
+    {
+      name: "Home & Garden",
+      image: home,
+    },
+    {
+      name: "Sports & Fitness",
+      image: fitness,
+    },
+    {
+      name: "Beauty & Personal Care",
+      image: beauty,
+    },
+    {
+      name: "Books & Entertainment",
+      image: book,
+    },
   ];
+  
 
   return (
     <div className="min-h-screen bg-yellow-50 py-12 px-4 sm:px-6 lg:px-8">
@@ -516,72 +545,59 @@ const ResearchParticipationPage = () => {
                   Preferred Shopping Categories
                 </label>
                 <div className="grid md:grid-cols-4 gap-4">
-                  {shoppingCategories.map((category) => (
-                    <div
-                      key={category}
-                      className={`
-          border-2 rounded-lg p-4 cursor-pointer transition-all duration-300
-          ${
-            formData.preferredCategories.includes(category)
-              ? "border-yellow-500 bg-yellow-100 shadow-md"
-              : "border-yellow-200 bg-white hover:border-yellow-400"
-          }
-        `}
-                      onClick={() => {
-                        const newCategories =
-                          formData.preferredCategories.includes(category)
-                            ? formData.preferredCategories.filter(
-                                (cat) => cat !== category
-                              )
-                            : [...formData.preferredCategories, category];
+  {shoppingCategories.map((category) => (
+    <div
+      key={category.name}
+      className={`border-2 rounded-lg p-4 cursor-pointer transition-all duration-300
+        ${
+          formData.preferredCategories.includes(category.name)
+            ? "border-yellow-500 bg-yellow-100 shadow-md"
+            : "border-yellow-200 bg-white hover:border-yellow-400"
+        }`}
+      onClick={() => {
+        const newCategories = formData.preferredCategories.includes(
+          category.name
+        )
+          ? formData.preferredCategories.filter((cat) => cat !== category.name)
+          : [...formData.preferredCategories, category.name];
 
-                        setFormData((prev) => ({
-                          ...prev,
-                          preferredCategories: newCategories,
-                        }));
-                      }}
-                    >
-                      <div className="flex flex-col items-center">
-                        {/* You can add icons for each category if desired */}
-                        <div
-                          className={`
-            w-16 h-16 rounded-full mb-3 flex items-center justify-center
-            ${
-              formData.preferredCategories.includes(category)
-                ? "bg-yellow-500 text-white"
-                : "bg-yellow-100 text-yellow-700"
-            }
-          `}
-                        >
-                          {/* Placeholder for potential category icons */}
-                          {category.charAt(0)}
-                        </div>
-                        <span
-                          className={`
-            text-sm font-medium text-center
-            ${
-              formData.preferredCategories.includes(category)
-                ? "text-yellow-900"
-                : "text-yellow-700"
-            }
-          `}
-                        >
-                          {category}
-                        </span>
-                        <input
-                          type="checkbox"
-                          name="preferredCategories"
-                          value={category}
-                          checked={formData.preferredCategories.includes(
-                            category
-                          )}
-                          onChange={() => {}} // Prevent default checkbox behavior
-                          className="hidden"
-                        />
-                      </div>
-                    </div>
-                  ))}
-                </div>
+        setFormData((prev) => ({
+          ...prev,
+          preferredCategories: newCategories,
+        }));
+      }}
+    >
+      <div className="flex flex-col items-center">
+        {/* Image Section */}
+        <img
+          src={category.image}
+          alt={category.name}
+          className={`w-16 h-16 mb-3`}
+        />
+        {/* Category Name */}
+        <span
+          className={`text-sm font-medium text-center ${
+            formData.preferredCategories.includes(category.name)
+              ? "text-yellow-900"
+              : "text-yellow-700"
+          }`}
+        >
+          {category.name}
+        </span>
+        {/* Hidden Checkbox */}
+        <input
+          type="checkbox"
+          name="preferredCategories"
+          value={category.name}
+          checked={formData.preferredCategories.includes(category.name)}
+          onChange={() => {}} // Prevent default checkbox behavior
+          className="hidden"
+        />
+      </div>
+    </div>
+  ))}
+</div>
+
                 {formErrors.preferredCategories && (
                   <p className="text-red-500 text-xs mt-2">
                     {formErrors.preferredCategories}
