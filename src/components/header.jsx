@@ -25,7 +25,7 @@ const Header = () => {
               title=""
               className="flex rounded outline-none focus:ring-1 focus:ring-gray-900 focus:ring-offset-2"
             >
-              <img className="w-auto h-5 md:h-8" src={logo} alt="" />
+              <img className="w-auto h-6 md:h-8" src={logo} alt="" />
             </a>
           </div>
 
