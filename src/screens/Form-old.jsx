@@ -25,7 +25,7 @@ const ResearchParticipationPage = () => {
     preferredCategories: [],
     averageMonthlySpending: "",
     shoppingMethod: "",
-    offerPreferences: "",
+    offerPreference: [],
     communicationPreference: "",
 
     termsConsent: false,
@@ -102,8 +102,8 @@ const ResearchParticipationPage = () => {
       errors.preferredCategories = "Select at least one category";
     if (!formData.averageMonthlySpending)
       errors.averageMonthlySpending = "Average monthly spending is required";
-    if (!formData.offerPreferences)
-      errors.offerPreferences = "Offer Preferences is required";
+    if (!formData.offerPreference)
+      errors.offerPreference = "Offer preference is required";
 
     if (!formData.shoppingMethod)
       errors.shoppingMethod = "Shopping Method is required";
@@ -681,7 +681,7 @@ const ResearchParticipationPage = () => {
           </div>
 
           {/* Offer Response Section */}
-          <div className="bg-yellow-50 p-6 rounded-lg border-l-4 border-yellow-500 shadow-lg">
+         <div className="bg-yellow-50 p-6 rounded-lg border-l-4 border-yellow-500 shadow-lg">
   <h2 className="text-2xl font-semibold mb-4 text-yellow-700">
     Shopping Offer Preferences
   </h2>
