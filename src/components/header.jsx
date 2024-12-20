@@ -25,11 +25,7 @@ const Header = () => {
               title=""
               className="flex rounded outline-none focus:ring-1 focus:ring-gray-900 focus:ring-offset-2"
             >
-              <img
-                className="w-auto h-8"
-                src={logo}
-                alt=""
-              />
+              <img className="w-auto h-5 md:h-8" src={logo} alt="" />
             </a>
           </div>
 
@@ -137,9 +133,11 @@ const Header = () => {
             >
               Create free account
             </a> */}
-            <Link to={"/research-participation"} className="px-5 py-2 text-base font-bold leading-7 text-white transition-all duration-200 bg-gray-900 border border-transparent rounded-xl hover:bg-gray-600 font-pj focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900">
-            
-            Get Free Offers
+            <Link
+              to={"/research-participation"}
+              className="px-5 py-2 text-base font-bold leading-7 text-white transition-all duration-200 bg-gray-900 border border-transparent rounded-xl hover:bg-gray-600 font-pj focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
+            >
+              Get Free Offers
             </Link>
           </div>
         </div>
