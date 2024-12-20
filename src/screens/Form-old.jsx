@@ -25,7 +25,7 @@ const ResearchParticipationPage = () => {
     preferredCategories: [],
     averageMonthlySpending: "",
     shoppingMethod: "",
-    offerPreferences: [],
+    offerPreferences: "",
     communicationPreference: "",
 
     termsConsent: false,
@@ -102,8 +102,8 @@ const ResearchParticipationPage = () => {
       errors.preferredCategories = "Select at least one category";
     if (!formData.averageMonthlySpending)
       errors.averageMonthlySpending = "Average monthly spending is required";
-    if (formData.offerPreferences.length === 0)
-      errors.offerPreferences = "Select at least one option";
+    if (!formData.offerPreferences)
+      errors.offerPreferences = "Offer Preferences is required";
 
     if (!formData.shoppingMethod)
       errors.shoppingMethod = "Shopping Method is required";
@@ -682,135 +682,116 @@ const ResearchParticipationPage = () => {
 
           {/* Offer Response Section */}
           <div className="bg-yellow-50 p-6 rounded-lg border-l-4 border-yellow-500 shadow-lg">
-            <h2 className="text-2xl font-semibold mb-4 text-yellow-700">
-              Shopping Offer Preferences
-            </h2>
+  <h2 className="text-2xl font-semibold mb-4 text-yellow-700">
+    Shopping Offer Preferences
+  </h2>
 
-            <label
-              htmlFor="communicationPreference"
-              className="block text-sm font-medium text-yellow-800 mb-8"
-            >
-              Select all options that describe your shopping behavior when it
-              comes to deals and offers
-            </label>
-            <div className="space-y-4">
-              <div className="grid gap-4">
-                {[
-                  {
-                    value: "instantGrabber",
-                    label: "I grab items instantly when I see an offer",
-                    category: "high",
-                  },
-                  {
-                    value: "activeHunter",
-                    label: "I actively hunt for deals and promotional offers",
-                    category: "high",
-                  },
-                  {
-                    value: "waitForSales",
-                    label:
-                      "I usually wait for sales before making major purchases",
-                    category: "high",
-                  },
-                  {
-                    value: "compareOffers",
-                    label: "I actively compare offers across different stores",
-                    category: "high",
-                  },
-                  {
-                    value: "loyaltyPrograms",
-                    label:
-                      "I participate in store loyalty programs for better deals",
-                    category: "medium",
-                  },
-                  {
-                    value: "occasionalBuyer",
-                    label:
-                      "I occasionally buy items on sale if I come across them",
-                    category: "medium",
-                  },
-                  {
-                    value: "plannedOnly",
-                    label: "I only use offers for planned purchases",
-                    category: "medium",
-                  },
-                  {
-                    value: "qualityConcerned",
-                    label: "I prioritize quality over discounts",
-                    category: "low",
-                  },
-                  {
-                    value: "brandLoyal",
-                    label:
-                      "I stick to my preferred brands regardless of offers",
-                    category: "low",
-                  },
-                  {
-                    value: "rarelyUse",
-                    label: "I rarely use discounts or promotional offers",
-                    category: "low",
-                  },
-                  {
-                    value: "skeptical",
-                    label:
-                      "I am skeptical about the quality of discounted items",
-                    category: "low",
-                  },
-                  {
-                    value: "dislike",
-                    label: "I do not like purchasing discounted items",
-                    category: "low",
-                  },
-                ].map((preference) => (
-                  <div key={preference.value} className="flex items-center">
-                    <input
-                      type="checkbox"
-                      id={preference.value}
-                      name="offerPreferences"
-                      value={preference.value}
-                      checked={
-                        Array.isArray(formData?.offerPreferences) &&
-                        formData.offerPreferences.includes(preference.value)
-                      }
-                      onChange={(e) => {
-                        const value = e.target.value;
-                        const isChecked = e.target.checked;
+  <label className="block text-sm font-medium text-yellow-800 mb-8">
+    Select the option that best describes your shopping behavior when it comes to deals and offers
+  </label>
 
-                        setFormData((prev) => {
-                          const currentPreferences = Array.isArray(
-                            prev.offerPreferences
-                          )
-                            ? prev.offerPreferences
-                            : [];
-
-                          return {
-                            ...prev,
-                            offerPreferences: isChecked
-                              ? [...currentPreferences, value]
-                              : currentPreferences.filter(
-                                  (pref) => pref !== value
-                                ),
-                          };
-                        });
-                      }}
-                      className="w-4 h-4 text-yellow-600 border-yellow-300 rounded focus:ring-yellow-500"
-                    />
-                    <label
-                      htmlFor={preference.value}
-                      className="ml-2 text-sm text-yellow-800 cursor-pointer"
-                    >
-                      {preference.label}
-                    </label>
-                  </div>
-                ))}
-              </div>
-            </div>
-            {formErrors?.offerPreferences && (
-              <p className="text-red-500 text-xs mt-2">
-                {formErrors.offerPreferences}
-              </p>
+  <div className="grid md:grid-cols-2 gap-4">
+    {[
+      {
+        value: "instantGrabber",
+        label: "I grab items instantly when I see an offer",
+        category: "high",
+      },
+      {
+        value: "activeHunter",
+        label: "I actively hunt for deals and promotional offers",
+        category: "high",
+      },
+      {
+        value: "waitForSales",
+        label: "I usually wait for sales before making major purchases",
+        category: "high",
+      },
+      {
+        value: "compareOffers",
+        label: "I actively compare offers across different stores",
+        category: "high",
+      },
+      {
+        value: "loyaltyPrograms",
+        label: "I participate in store loyalty programs for better deals",
+        category: "medium",
+      },
+      {
+        value: "occasionalBuyer",
+        label: "I occasionally buy items on sale if I come across them",
+        category: "medium",
+      },
+      {
+        value: "plannedOnly",
+        label: "I only use offers for planned purchases",
+        category: "medium",
+      },
+      {
+        value: "qualityConcerned",
+        label: "I prioritize quality over discounts",
+        category: "low",
+      },
+      {
+        value: "brandLoyal",
+        label: "I stick to my preferred brands regardless of offers",
+        category: "low",
+      },
+      {
+        value: "rarelyUse",
+        label: "I rarely use discounts or promotional offers",
+        category: "low",
+      },
+      {
+        value: "skeptical",
+        label: "I am skeptical about the quality of discounted items",
+        category: "low",
+      },
+      {
+        value: "dislike",
+        label: "I do not like purchasing discounted items",
+        category: "low",
+      },
+    ].map((preference) => (
+      <div
+        key={preference.value}
+        className={`border-2 rounded-lg p-4 cursor-pointer transition-all duration-300
+          ${
+            formData?.offerPreference === preference.value
+              ? "border-yellow-500 bg-yellow-100 shadow-md"
+              : "border-yellow-200 bg-white hover:border-yellow-400"
+          }`}
+        onClick={() => {
+          setFormData((prev) => ({
+            ...prev,
+            offerPreference: preference.value,
+          }));
+        }}
+      >
+        <div className="flex items-center space-x-3">
+          <div className="w-4 h-4 rounded-full border-2 border-yellow-500 flex items-center justify-center">
+            {formData?.offerPreference === preference.value && (
+              <div className="w-2 h-2 rounded-full bg-yellow-500" />
             )}
           </div>
+          <span className={`text-sm font-medium ${
+            formData?.offerPreference === preference.value
+              ? "text-yellow-900"
+              : "text-yellow-700"
+          }`}>
+            {preference.label}
+          </span>
+        </div>
+      </div>
+    ))}
+  </div>
+  
+  {formErrors?.offerPreference && (
+    <p className="text-red-500 text-xs mt-2">
+      {formErrors.offerPreference}
+    </p>
+  )}
+</div>
           {/* Communication Preferences Section */}
           <div className="bg-yellow-50 p-6 rounded-lg border-l-4 border-yellow-500 shadow-lg">
             <h2 className="text-2xl font-semibold mb-4 text-yellow-700">
