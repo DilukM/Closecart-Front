@@ -24,7 +24,10 @@ const ResearchParticipationPage = () => {
     shoppingFrequency: "",
     preferredCategories: [],
     averageMonthlySpending: "",
+    shoppingMethod: "",
+    offerPreferences: [],
     communicationPreference: "",
+
     termsConsent: false,
   });
 
@@ -99,6 +102,12 @@ const ResearchParticipationPage = () => {
       errors.preferredCategories = "Select at least one category";
     if (!formData.averageMonthlySpending)
       errors.averageMonthlySpending = "Average monthly spending is required";
+    if (formData.offerPreferences.length === 0)
+      errors.offerPreferences = "Select at least one option";
+
+    if (!formData.shoppingMethod)
+      errors.shoppingMethod = "Shopping Method is required";
+
     if (!formData.communicationPreference)
       errors.communicationPreference = "Communication preference is required";
     if (!formData.termsConsent)
@@ -164,7 +173,7 @@ const ResearchParticipationPage = () => {
   const shoppingCategories = [
     {
       name: "Electronics",
-      image: electronics, 
+      image: electronics,
     },
     {
       name: "Fashion",
@@ -191,7 +200,6 @@ const ResearchParticipationPage = () => {
       image: book,
     },
   ];
-  
 
   return (
     <div className="min-h-screen bg-yellow-50 py-12 px-4 sm:px-6 lg:px-8">
@@ -276,107 +284,121 @@ const ResearchParticipationPage = () => {
             </div>
           )}
 
-         {/* Contact Details Section */}
-<div className="bg-yellow-50 p-6 rounded-lg border-l-4 border-yellow-500 shadow-lg">
-  <h2 className="text-2xl font-semibold mb-4 text-yellow-700">
-    Contact Details
-  </h2>
-  <p className="text-sm text-yellow-600 mb-4">
-    This information is optional and will only be used to send updates about the "closecart" platform.
-  </p>
-  <div className="grid md:grid-cols-2 gap-6">
-    {/* First Name */}
-    <div>
-      <label
-        htmlFor="firstName"
-        className="block text-sm font-medium text-yellow-800 mb-2"
-      >
-        First Name
-      </label>
-      <input
-        type="text"
-        name="firstName"
-        value={formData.firstName}
-        onChange={handleChange}
-        className={`w-full px-3 py-2 border rounded-md ${
-          formErrors.firstName ? "border-red-500" : "border-yellow-300"
-        }`}
-      />
-      {formErrors.firstName && (
-        <p className="text-red-500 text-xs mt-1">{formErrors.firstName}</p>
-      )}
-    </div>
+          {/* Contact Details Section */}
+          <div className="bg-yellow-50 p-6 rounded-lg border-l-4 border-yellow-500 shadow-lg">
+            <h2 className="text-2xl font-semibold mb-4 text-yellow-700">
+              Contact Details
+            </h2>
+            <p className="text-sm text-yellow-600 mb-4">
+              This information is optional and will only be used to send updates
+              about the "closecart" platform.
+            </p>
+            <div className="grid md:grid-cols-2 gap-6">
+              {/* First Name */}
+              <div>
+                <label
+                  htmlFor="firstName"
+                  className="block text-sm font-medium text-yellow-800 mb-2"
+                >
+                  First Name
+                </label>
+                <input
+                  type="text"
+                  name="firstName"
+                  value={formData.firstName}
+                  onChange={handleChange}
+                  className={`w-full px-3 py-2 border rounded-md ${
+                    formErrors.firstName
+                      ? "border-red-500"
+                      : "border-yellow-300"
+                  }`}
+                />
+                {formErrors.firstName && (
+                  <p className="text-red-500 text-xs mt-1">
+                    {formErrors.firstName}
+                  </p>
+                )}
+              </div>
 
-    {/* Last Name */}
-    <div>
-      <label
-        htmlFor="lastName"
-        className="block text-sm font-medium text-yellow-800 mb-2"
-      >
-        Last Name
-      </label>
-      <input
-        type="text"
-        name="lastName"
-        value={formData.lastName}
-        onChange={handleChange}
-        className={`w-full px-3 py-2 border rounded-md ${
-          formErrors.lastName ? "border-red-500" : "border-yellow-300"
-        }`}
-      />
-      {formErrors.lastName && (
-        <p className="text-red-500 text-xs mt-1">{formErrors.lastName}</p>
-      )}
-    </div>
+              {/* Last Name */}
+              <div>
+                <label
+                  htmlFor="lastName"
+                  className="block text-sm font-medium text-yellow-800 mb-2"
+                >
+                  Last Name
+                </label>
+                <input
+                  type="text"
+                  name="lastName"
+                  value={formData.lastName}
+                  onChange={handleChange}
+                  className={`w-full px-3 py-2 border rounded-md ${
+                    formErrors.lastName ? "border-red-500" : "border-yellow-300"
+                  }`}
+                />
+                {formErrors.lastName && (
+                  <p className="text-red-500 text-xs mt-1">
+                    {formErrors.lastName}
+                  </p>
+                )}
+              </div>
 
-    {/* Email Address */}
-    <div>
-      <label
-        htmlFor="email"
-        className="block text-sm font-medium text-yellow-800 mb-2"
-      >
-        Email Address
-      </label>
-      <input
-        type="email"
-        name="email"
-        value={formData.email}
-        onChange={handleChange}
-        className={`w-full px-3 py-2 border rounded-md ${
-          formErrors.email ? "border-red-500" : "border-yellow-300"
-        }`}
-      />
-      {formErrors.email && (
-        <p className="text-red-500 text-xs mt-1">{formErrors.email}</p>
-      )}
-    </div>
+              {/* Email Address */}
+              <div>
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-medium text-yellow-800 mb-2"
+                >
+                  Email Address
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  className={`w-full px-3 py-2 border rounded-md ${
+                    formErrors.email ? "border-red-500" : "border-yellow-300"
+                  }`}
+                />
+                {formErrors.email && (
+                  <p className="text-red-500 text-xs mt-1">
+                    {formErrors.email}
+                  </p>
+                )}
+              </div>
 
-    {/* Mobile Number */}
-    <div>
-      <label
-        htmlFor="mobileNumber"
-        className="block text-sm font-medium text-yellow-800 mb-2"
-      >
-        Mobile Number
-      </label>
-      <input
-        type="tel"
-        name="mobileNumber"
-        value={formData.mobileNumber}
-        onChange={handleChange}
-        placeholder="Enter 10-digit mobile number"
-        className={`w-full px-3 py-2 border rounded-md ${
-          formErrors.mobileNumber ? "border-red-500" : "border-yellow-300"
-        }`}
-      />
-      {formErrors.mobileNumber && (
-        <p className="text-red-500 text-xs mt-1">{formErrors.mobileNumber}</p>
-      )}
-      <p className="text-xs text-yellow-600 mt-1">Format: 0712345678</p>
-    </div>
-  </div>
-</div>
-
+              {/* Mobile Number */}
+              <div>
+                <label
+                  htmlFor="mobileNumber"
+                  className="block text-sm font-medium text-yellow-800 mb-2"
+                >
+                  Mobile Number
+                </label>
+                <input
+                  type="tel"
+                  name="mobileNumber"
+                  value={formData.mobileNumber}
+                  onChange={handleChange}
+                  placeholder="Enter 10-digit mobile number"
+                  className={`w-full px-3 py-2 border rounded-md ${
+                    formErrors.mobileNumber
+                      ? "border-red-500"
+                      : "border-yellow-300"
+                  }`}
+                />
+                {formErrors.mobileNumber && (
+                  <p className="text-red-500 text-xs mt-1">
+                    {formErrors.mobileNumber}
+                  </p>
+                )}
+                <p className="text-xs text-yellow-600 mt-1">
+                  Format: 0712345678
+                </p>
+              </div>
+            </div>
+          </div>
 
           {/* Demographic Information Section */}
           <div className="bg-yellow-50 p-6 rounded-lg border-l-4 border-yellow-500 shadow-lg">
@@ -545,58 +567,61 @@ const ResearchParticipationPage = () => {
                   Preferred Shopping Categories
                 </label>
                 <div className="grid md:grid-cols-4 gap-4">
-  {shoppingCategories.map((category) => (
-    <div
-      key={category.name}
-      className={`border-2 rounded-lg p-4 cursor-pointer transition-all duration-300
+                  {shoppingCategories.map((category) => (
+                    <div
+                      key={category.name}
+                      className={`border-2 rounded-lg p-4 cursor-pointer transition-all duration-300
         ${
           formData.preferredCategories.includes(category.name)
             ? "border-yellow-500 bg-yellow-100 shadow-md"
             : "border-yellow-200 bg-white hover:border-yellow-400"
         }`}
-      onClick={() => {
-        const newCategories = formData.preferredCategories.includes(
-          category.name
-        )
-          ? formData.preferredCategories.filter((cat) => cat !== category.name)
-          : [...formData.preferredCategories, category.name];
+                      onClick={() => {
+                        const newCategories =
+                          formData.preferredCategories.includes(category.name)
+                            ? formData.preferredCategories.filter(
+                                (cat) => cat !== category.name
+                              )
+                            : [...formData.preferredCategories, category.name];
 
-        setFormData((prev) => ({
-          ...prev,
-          preferredCategories: newCategories,
-        }));
-      }}
-    >
-      <div className="flex flex-col items-center">
-        {/* Image Section */}
-        <img
-          src={category.image}
-          alt={category.name}
-          className={`w-16 h-16 mb-3`}
-        />
-        {/* Category Name */}
-        <span
-          className={`text-sm font-medium text-center ${
-            formData.preferredCategories.includes(category.name)
-              ? "text-yellow-900"
-              : "text-yellow-700"
-          }`}
-        >
-          {category.name}
-        </span>
-        {/* Hidden Checkbox */}
-        <input
-          type="checkbox"
-          name="preferredCategories"
-          value={category.name}
-          checked={formData.preferredCategories.includes(category.name)}
-          onChange={() => {}} // Prevent default checkbox behavior
-          className="hidden"
-        />
-      </div>
-    </div>
-  ))}
-</div>
+                        setFormData((prev) => ({
+                          ...prev,
+                          preferredCategories: newCategories,
+                        }));
+                      }}
+                    >
+                      <div className="flex flex-col items-center">
+                        {/* Image Section */}
+                        <img
+                          src={category.image}
+                          alt={category.name}
+                          className={`w-16 h-16 mb-3`}
+                        />
+                        {/* Category Name */}
+                        <span
+                          className={`text-sm font-medium text-center ${
+                            formData.preferredCategories.includes(category.name)
+                              ? "text-yellow-900"
+                              : "text-yellow-700"
+                          }`}
+                        >
+                          {category.name}
+                        </span>
+                        {/* Hidden Checkbox */}
+                        <input
+                          type="checkbox"
+                          name="preferredCategories"
+                          value={category.name}
+                          checked={formData.preferredCategories.includes(
+                            category.name
+                          )}
+                          onChange={() => {}} // Prevent default checkbox behavior
+                          className="hidden"
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </div>
 
                 {formErrors.preferredCategories && (
                   <p className="text-red-500 text-xs mt-2">
@@ -607,6 +632,185 @@ const ResearchParticipationPage = () => {
             </div>
           </div>
 
+          {/* Shopping Method Section */}
+          <div className="bg-yellow-50 p-6 rounded-lg border-l-4 border-yellow-500 shadow-lg">
+            <h2 className="text-2xl font-semibold mb-4 text-yellow-700">
+              Preferred Shopping Method
+            </h2>
+            <div className="grid md:grid-cols-3 gap-4">
+              {["Online", "Physical Store", "Both"].map((method) => (
+                <div
+                  key={method}
+                  className={`border-2 rounded-lg p-4 cursor-pointer transition-all duration-300
+          ${
+            formData.shoppingMethod === method
+              ? "border-yellow-500 bg-yellow-100 shadow-md"
+              : "border-yellow-200 bg-white hover:border-yellow-400"
+          }`}
+                  onClick={() => {
+                    setFormData((prev) => ({
+                      ...prev,
+                      shoppingMethod: method,
+                    }));
+                  }}
+                >
+                  <div className="flex items-center justify-center space-x-3">
+                    <div className="w-4 h-4 rounded-full border-2 border-yellow-500 flex items-center justify-center">
+                      {formData.shoppingMethod === method && (
+                        <div className="w-2 h-2 rounded-full bg-yellow-500" />
+                      )}
+                    </div>
+                    <span
+                      className={`text-sm font-medium ${
+                        formData.shoppingMethod === method
+                          ? "text-yellow-900"
+                          : "text-yellow-700"
+                      }`}
+                    >
+                      {method}
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
+            {formErrors.shoppingMethod && (
+              <p className="text-red-500 text-xs mt-2">
+                {formErrors.shoppingMethod}
+              </p>
+            )}
+          </div>
+
+          {/* Offer Response Section */}
+          <div className="bg-yellow-50 p-6 rounded-lg border-l-4 border-yellow-500 shadow-lg">
+            <h2 className="text-2xl font-semibold mb-4 text-yellow-700">
+              Shopping Offer Preferences
+            </h2>
+
+            <label
+              htmlFor="communicationPreference"
+              className="block text-sm font-medium text-yellow-800 mb-8"
+            >
+              Select all options that describe your shopping behavior when it
+              comes to deals and offers
+            </label>
+            <div className="space-y-4">
+              <div className="grid gap-4">
+                {[
+                  {
+                    value: "instantGrabber",
+                    label: "I grab items instantly when I see an offer",
+                    category: "high",
+                  },
+                  {
+                    value: "activeHunter",
+                    label: "I actively hunt for deals and promotional offers",
+                    category: "high",
+                  },
+                  {
+                    value: "waitForSales",
+                    label:
+                      "I usually wait for sales before making major purchases",
+                    category: "high",
+                  },
+                  {
+                    value: "compareOffers",
+                    label: "I actively compare offers across different stores",
+                    category: "high",
+                  },
+                  {
+                    value: "loyaltyPrograms",
+                    label:
+                      "I participate in store loyalty programs for better deals",
+                    category: "medium",
+                  },
+                  {
+                    value: "occasionalBuyer",
+                    label:
+                      "I occasionally buy items on sale if I come across them",
+                    category: "medium",
+                  },
+                  {
+                    value: "plannedOnly",
+                    label: "I only use offers for planned purchases",
+                    category: "medium",
+                  },
+                  {
+                    value: "qualityConcerned",
+                    label: "I prioritize quality over discounts",
+                    category: "low",
+                  },
+                  {
+                    value: "brandLoyal",
+                    label:
+                      "I stick to my preferred brands regardless of offers",
+                    category: "low",
+                  },
+                  {
+                    value: "rarelyUse",
+                    label: "I rarely use discounts or promotional offers",
+                    category: "low",
+                  },
+                  {
+                    value: "skeptical",
+                    label:
+                      "I am skeptical about the quality of discounted items",
+                    category: "low",
+                  },
+                  {
+                    value: "dislike",
+                    label: "I do not like purchasing discounted items",
+                    category: "low",
+                  },
+                ].map((preference) => (
+                  <div key={preference.value} className="flex items-center">
+                    <input
+                      type="checkbox"
+                      id={preference.value}
+                      name="offerPreferences"
+                      value={preference.value}
+                      checked={
+                        Array.isArray(formData?.offerPreferences) &&
+                        formData.offerPreferences.includes(preference.value)
+                      }
+                      onChange={(e) => {
+                        const value = e.target.value;
+                        const isChecked = e.target.checked;
+
+                        setFormData((prev) => {
+                          const currentPreferences = Array.isArray(
+                            prev.offerPreferences
+                          )
+                            ? prev.offerPreferences
+                            : [];
+
+                          return {
+                            ...prev,
+                            offerPreferences: isChecked
+                              ? [...currentPreferences, value]
+                              : currentPreferences.filter(
+                                  (pref) => pref !== value
+                                ),
+                          };
+                        });
+                      }}
+                      className="w-4 h-4 text-yellow-600 border-yellow-300 rounded focus:ring-yellow-500"
+                    />
+                    <label
+                      htmlFor={preference.value}
+                      className="ml-2 text-sm text-yellow-800 cursor-pointer"
+                    >
+                      {preference.label}
+                    </label>
+                  </div>
+                ))}
+              </div>
+            </div>
+            {formErrors?.offerPreferences && (
+              <p className="text-red-500 text-xs mt-2">
+                {formErrors.offerPreferences}
+              </p>
+            )}
+          </div>
           {/* Communication Preferences Section */}
           <div className="bg-yellow-50 p-6 rounded-lg border-l-4 border-yellow-500 shadow-lg">
             <h2 className="text-2xl font-semibold mb-4 text-yellow-700">
