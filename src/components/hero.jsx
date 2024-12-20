@@ -26,17 +26,17 @@ const Hero = () => {
               </div>
 
               <div className="flex space-x-4 py-12 justify-center md:justify-start">
-                <Link
+                {/* <Link
                   to="/research-participation-old"
                   className="bg-black text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition"
                 >
                   Learn More
-                </Link>
+                </Link> */}
                 <Link
                   to="/research-participation"
                   className="text-black px-6 py-3 border-2 border-black rounded-lg hover:border-blue-500 hover:text-blue-500 transition"
                 >
-                  Get Started
+                  Get Free Offers
                 </Link>
               </div>
             </div>
