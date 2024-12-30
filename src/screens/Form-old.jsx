@@ -4,6 +4,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { Info, Gift, Target, PieChart, Zap } from "lucide-react";
 import electronics from "../assets/responsive.png";
+import groceries from "../assets/groceries.png";
 import beauty from "../assets/cosmetics.png";
 import book from "../assets/book.png";
 import fashion from "../assets/dress.png";
@@ -26,7 +27,7 @@ const ResearchParticipationPage = () => {
     averageMonthlySpending: "",
     shoppingMethod: "",
     offerPreference: [],
-    communicationPreference: "",
+  
 
     termsConsent: false,
   });
@@ -108,8 +109,7 @@ const ResearchParticipationPage = () => {
     if (!formData.shoppingMethod)
       errors.shoppingMethod = "Shopping Method is required";
 
-    if (!formData.communicationPreference)
-      errors.communicationPreference = "Communication preference is required";
+   
     if (!formData.termsConsent)
       errors.termsConsent = "You must agree to the terms";
 
@@ -174,6 +174,10 @@ const ResearchParticipationPage = () => {
     {
       name: "Electronics",
       image: electronics,
+    },
+    {
+      name: "Groceries",
+      image: groceries,
     },
     {
       name: "Fashion",
@@ -285,7 +289,7 @@ const ResearchParticipationPage = () => {
           )}
 
           {/* Contact Details Section */}
-          <div className="bg-yellow-50 p-6 rounded-lg border-l-4 border-yellow-500 shadow-lg">
+          {/* <div className="bg-yellow-50 p-6 rounded-lg border-l-4 border-yellow-500 shadow-lg">
             <h2 className="text-2xl font-semibold mb-4 text-yellow-700">
               Contact Details
             </h2>
@@ -294,7 +298,7 @@ const ResearchParticipationPage = () => {
               about the "closecart" platform.
             </p>
             <div className="grid md:grid-cols-2 gap-6">
-              {/* First Name */}
+             
               <div>
                 <label
                   htmlFor="firstName"
@@ -320,7 +324,7 @@ const ResearchParticipationPage = () => {
                 )}
               </div>
 
-              {/* Last Name */}
+              
               <div>
                 <label
                   htmlFor="lastName"
@@ -344,7 +348,7 @@ const ResearchParticipationPage = () => {
                 )}
               </div>
 
-              {/* Email Address */}
+              
               <div>
                 <label
                   htmlFor="email"
@@ -368,7 +372,7 @@ const ResearchParticipationPage = () => {
                 )}
               </div>
 
-              {/* Mobile Number */}
+              
               <div>
                 <label
                   htmlFor="mobileNumber"
@@ -398,7 +402,7 @@ const ResearchParticipationPage = () => {
                 </p>
               </div>
             </div>
-          </div>
+          </div> */}
 
           {/* Demographic Information Section */}
           <div className="bg-yellow-50 p-6 rounded-lg border-l-4 border-yellow-500 shadow-lg">
@@ -792,43 +796,7 @@ const ResearchParticipationPage = () => {
     </p>
   )}
 </div>
-          {/* Communication Preferences Section */}
-          <div className="bg-yellow-50 p-6 rounded-lg border-l-4 border-yellow-500 shadow-lg">
-            <h2 className="text-2xl font-semibold mb-4 text-yellow-700">
-              Communication Preferences
-            </h2>
-            <div>
-              <label
-                htmlFor="communicationPreference"
-                className="block text-sm font-medium text-yellow-800 mb-2"
-              >
-                How would you like to receive updates?
-              </label>
-              <select
-                name="communicationPreference"
-                value={formData.communicationPreference}
-                onChange={handleChange}
-                className={`w-full px-3 py-2 border rounded-md ${
-                  formErrors.communicationPreference
-                    ? "border-red-500"
-                    : "border-yellow-300"
-                }`}
-              >
-                <option value="" disabled>
-                  Select Communication Method
-                </option>
-                <option value="email">Email</option>
-                <option value="sms">SMS</option>
-                <option value="push-notification">Push Notification</option>
-                <option value="no-communication">No Communication</option>
-              </select>
-              {formErrors.communicationPreference && (
-                <p className="text-red-500 text-xs mt-1">
-                  {formErrors.communicationPreference}
-                </p>
-              )}
-            </div>
-          </div>
+         
 
           {/* Terms and Consent Section */}
           <div className="bg-yellow-50 p-6 rounded-lg border-l-4 border-yellow-500 shadow-lg">
